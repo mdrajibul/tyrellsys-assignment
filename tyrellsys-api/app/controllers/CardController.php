@@ -28,7 +28,7 @@ class CardController extends BaseController
         }
         if ($players < 1) {
             $response['statusCode'] = 422;
-            $response['body'] = 'Input value does not exist or value is invalid';
+            $response['body'] = json_encode(array('error' => 'Input value does not exist or value is invalid'));
         } else {
             $response['statusCode'] = 200;
             $response['body'] = json_encode($this->service->distribute($players));
